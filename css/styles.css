@@ -12,7 +12,6 @@ table {
     border-spacing: 0;
     padding: 1px;
     border: 0px;
-
 }
 
 td.td_word {
@@ -23,7 +22,7 @@ td.td_word {
 }
 
 td.td_num {
-    width: 22px;
+    width: 32px;
     vertical-align: middle;
     text-align: left;
 }
