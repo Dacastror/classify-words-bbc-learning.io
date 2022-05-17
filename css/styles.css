@@ -23,6 +23,7 @@ td.td_word {
 }
 
 td.td_num {
-    width: 36px;
+    width: 22px;
     vertical-align: middle;
+    text-align: left;
 }
