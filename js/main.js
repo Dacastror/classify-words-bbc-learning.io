@@ -133,5 +133,4 @@ function showSearchTool(){
     document.getElementById(ID_INTERFACE_SEARCH).style.display = 'block';
     let img = document.getElementById(ID_VIDEO_SELECTED)
     img.src = 'images/' + this.id + '.jpeg'
-    console.log(document.getElementById(ID_VIDEO_SELECTED).src)
 }
