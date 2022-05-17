@@ -7,6 +7,7 @@ const ID_INTERFACE_SEARCH = "interface_buscar_palabras"
 const ID_HARD_WORD_LIST = "list_hard_words"
 const ID_MEDIUM_WORD_LIST = "list_medium_words"
 const ID_EASY_WORD_LIST = "list_easy_words"
+const ID_VIDEO_SELECTED = "video_selected"
 const ID_RESULTS = "results"
 const CLASS_DICTATE = "dictate"
 const VIDEO_SELECTED = "video_selected"
@@ -122,6 +123,7 @@ function showHome(){
     document.getElementById(ID_DIV_DICTATIONS).style.display = 'block';
     document.getElementById(ID_RESULTS).style.display = 'none';
     document.getElementById(ID_INTERFACE_SEARCH).style.display = 'none';
+    document.getElementById(ID_VIDEO_SELECTED).src = ""
 }
 
 function showSearchTool(){
@@ -129,4 +131,5 @@ function showSearchTool(){
     sessionStorage.setItem(VIDEO_SELECTED, num_video)
     document.getElementById(ID_DIV_DICTATIONS).style.display = 'none';
     document.getElementById(ID_INTERFACE_SEARCH).style.display = 'block';
+    document.getElementById(ID_VIDEO_SELECTED).src = 'images/' + this.id + '.jpeg'
 }
