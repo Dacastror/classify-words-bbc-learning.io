@@ -75,8 +75,9 @@ function selectTextForCurrentInput(){
 function buildItem(num, word){
     let w = '<h6>' + word + '</h6>'
     let td_num = '<td class="td_num"><h6>' + num + '</h6></td>\n'
+    let td_sep = '<td class="td_sep"></td>\n'
     let td_word = '<td class="td_word">' + w + '</td>\n'
-    return  '<tr>\n' + td_num + td_word + '</tr>\n'
+    return  '<tr>\n' + td_num + td_sep + td_word + '</tr>\n'
 }
 
 function buildItems(words,id,num_ini){

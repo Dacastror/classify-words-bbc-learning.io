@@ -17,12 +17,16 @@ table {
 td.td_word {
     text-align: left;
     vertical-align: middle;
-    height: 36px;
+    height: 42px;
     width: 200px;
 }
 
 td.td_num {
-    width: 32px;
+    width: 24px;
     vertical-align: middle;
-    text-align: left;
+    text-align: right;
+}
+
+td.td_sep {
+    width: 12px;
 }
