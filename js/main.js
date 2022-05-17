@@ -17,11 +17,11 @@ function addEventLiteners(){
     let search_btn = document.getElementById(ID_SEARCH_BUTTON)
     search_btn.addEventListener("click", buildAnswer);
     let home_btn = document.getElementById(ID_HOME_BUTTON)
-    home_btn.addEventListener("click", makeHome);
+    home_btn.addEventListener("click", showHome);
     let lecciones = document.getElementsByClassName(CLASS_DICTATE)
     for(let i=0; i<lecciones.length; i++){
         let img = document.getElementById(String(i+1))
-        img.addEventListener("click", accionesClickImagen);
+        img.addEventListener("click", showSearchTool);
     }
 }
 
@@ -64,6 +64,14 @@ function selectText(times_words,start_index,end_index){
     return selected_text
 }
 
+function selectTextForCurrentInput(){
+    let num_video = sessionStorage.getItem(VIDEO_SELECTED)
+    let times_words = subs[num_video]
+    let {time_ini, time_fin} = getStartAndStopTime()
+    let {start_index, end_index} = searchIndexStartEnd(times_words,time_ini,time_fin)
+    return selectText(times_words,start_index,end_index)
+}
+
 function buildItem(num, word){
     let w = '<h6>' + word + '</h6>'
     let td_num = '<td align="left"><h6>' + num + '</h6></td>\n'
@@ -79,7 +87,6 @@ function buildItems(words,id,num_ini){
     let word_list_element = document.getElementById(id)
     word_list_element.innerHTML = items
 }
-
 
 function splitlist(array, parts) {
     let result = [];
@@ -98,11 +105,7 @@ function capitalized(list_words){
 }
 
 function buildAnswer(){
-    let num_video = sessionStorage.getItem(VIDEO_SELECTED)
-    let times_words = subs[num_video]
-    let {time_ini, time_fin} = getStartAndStopTime()
-    let {start_index, end_index} = searchIndexStartEnd(times_words,time_ini,time_fin)
-    let input_string = selectText(times_words,start_index,end_index)
+    let input_string = selectTextForCurrentInput()
     let words_by_freq = getWordsByFrequecy(corpus, input_string)
     words_by_freq = capitalized(words_by_freq)
     let word_groups = splitlist(words_by_freq, 3)
@@ -114,13 +117,13 @@ function buildAnswer(){
     document.getElementById(ID_RESULTS).style.display = 'block';
 }
 
-function makeHome(){
+function showHome(){
     document.getElementById(ID_DIV_DICTATIONS).style.display = 'block';
     document.getElementById(ID_RESULTS).style.display = 'none';
     document.getElementById(ID_INTERFACE_SEARCH).style.display = 'none';
 }
 
-function accionesClickImagen(){
+function showSearchTool(){
     let num_video = parseFloat(this.id)
     sessionStorage.setItem(VIDEO_SELECTED, num_video)
     document.getElementById(ID_DIV_DICTATIONS).style.display = 'none';

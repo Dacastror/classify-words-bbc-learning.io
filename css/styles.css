@@ -1,0 +1,7 @@
+body, div.card {
+    background-color: #202020 !important;
+}
+
+input[type="text"] {
+    background-color: #2d2d2d;
+}
