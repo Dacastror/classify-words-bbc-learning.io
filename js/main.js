@@ -131,5 +131,7 @@ function showSearchTool(){
     sessionStorage.setItem(VIDEO_SELECTED, num_video)
     document.getElementById(ID_DIV_DICTATIONS).style.display = 'none';
     document.getElementById(ID_INTERFACE_SEARCH).style.display = 'block';
-    document.getElementById(ID_VIDEO_SELECTED).src = 'images/' + this.id + '.jpeg'
+    let img = document.getElementById(ID_VIDEO_SELECTED)
+    img.src = 'images/' + this.id + '.jpeg'
+    console.log(document.getElementById(ID_VIDEO_SELECTED).src)
 }
